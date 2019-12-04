@@ -71,6 +71,10 @@ include_once('php/validacion_reg.php');
                         <input type="password" name="re_password" id="re_pass" placeholder="Repeat your password"/>
                     </div>
                     <div class="form-group">
+                        <label for="imagen"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="file" name="imagen" id="imagen" placeholder="Seleccionar imagen"/>
+                    </div>
+                    <div class="form-group">
                         <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                         <label for="agree-term" class="label-agree-term"><span><span></span></span>Acepto todas las declaraciones en los  <a href="#" class="term-service">Términos de servicio</a></label>
                     </div>
@@ -93,7 +97,7 @@ include_once('php/validacion_reg.php');
             </div>
             <div class="signup-image">
                 <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-                <a href="login.php" class="signup-image-link">Ya soy miembro</a>
+                <a href="index.php" class="signup-image-link">Ya soy miembro</a>
             </div>
         </div>
     </div>

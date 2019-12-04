@@ -37,7 +37,22 @@
                 if (!validar_requerido($password)) {
                     $errores[1] = 'Ingresar Password.';
                 }
+
+
+                if (($username == "usuario") && ($password == "12345")) {
+                    
+                    header("Location: index2.php");
+                    exit();
+                    
+                       } else {
+                        $errores[0] = '¡Usuario o contraseña incorrectos!';
+                    
+                        $errores[1] = '<br><p style="background-color: #98F9A3;">Registrarme<a href="registrarse.php"> aqui</a></p>';
+                    
+                       }
+                    
             
             }
+
         ?>
     

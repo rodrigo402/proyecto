@@ -43,22 +43,24 @@
                 if (!validar_requerido($username)) {
                     $errores[0] = 'Ingresar Username.';
                 }
-                // Password
-                if (!validar_requerido($password)) {
-                    $errores[1] = 'Ingresar Password.';
-                }
+                
                 // Email
                 if (!validar_email($email)) {
                     $errores[2] = 'El Email tiene un formato no válido.';
                 }
+                // Password
+                if (!validar_requerido($password)) {
+                    $errores[1] = 'Ingresar Password.';
+                }
                 if (!comprobarClave($password,$re_password)) {
-                    if ($password == $re_password){
-                        $errores[3] = 'Las dos claves son iguales...';
-                    }else{
-                        $errores[4] = 'Las dos claves son distintas...';
-
+                    if ($password != $re_password){
+                        $errores[3] = 'Las claves no coinciden...';
                     }
                     
+                }
+                //Si el campo "imagen" está vacío
+                if (empty($_POST['imagen'])) {
+                    $errores[5] = 'Agregar imagen por favor.'; 
                 }
             
             }

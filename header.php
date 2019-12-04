@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-6 col-sm-6 col-6 col-lg-2">
                 <div class="logo">
-                    <a href="index.php">
+                    <a href="index2.php">
                         <img src="images/logo/logo.png" alt="logo images">
                     </a>
                 </div>
@@ -16,7 +16,7 @@
             <div class="col-lg-8 d-none d-lg-block">
                 <nav class="mainmenu__nav">
                     <ul class="meninmenu d-flex justify-content-start">
-                        <li class="drop with--one--item"><a href="index.php">Home</a></li>
+                        <li class="drop with--one--item"><a href="index2.php">Home</a></li>
                         <li class="drop"><a href="#">Shop</a>
                             <div class="megamenu mega03">
                                 <ul class="item item03">
@@ -178,7 +178,7 @@
                                                 <span><a href="#">Compare Product</a></span>
                                                 <span><a href="#">My Account</a></span>
                                                 <span><a href="#">My Wishlist</a></span>
-                                                <span><a href="login.php">Sign In</a></span>
+                                                <span><a href="index.php">Sign In</a></span>
                                                 <span><a href="registrarse.php">Create An Account</a></span>
                                                 <span><a href="www.google.com">Salir</a></span>
                                             </div>
@@ -196,7 +196,7 @@
             <div class="col-lg-12 d-none">
                 <nav class="mobilemenu__nav">
                     <ul class="meninmenu">
-                        <li><a href="index.php">Home</a></li>
+                        <li><a href="index2.php">Home</a></li>
                         <li><a href="#">Pages</a>
                             <ul>
                                 <li><a href="my-account.html">My Account</a></li>
