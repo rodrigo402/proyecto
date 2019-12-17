@@ -1,6 +1,4 @@
-<?php
-include_once('php/validacion.php');
-?>
+<?php include_once('funciones/funcLoguearse.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,31 +56,31 @@ include_once('php/validacion.php');
 
             <div class="signin-form">
                 <h2 class="form-title">Iniciar Sesión</h2>
-                <form method="POST" class="register-form" id="login-form" action="login.php">
+                <form method="POST" enctype="multipart/form-data" class="register-form" id="login-form" action="login.php">
                     <div class="form-group">
                         <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="username" id="your_name" placeholder="Your Name"/>
+                        <input type="text" name="usuario" id="your_name" placeholder="Your Name" <?php if(isset($_COOKIE['usuario'])) { echo "value='{$_COOKIE['usuario']}'";} ?>/>
                     </div>
                     <div class="form-group">
                         <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" name="password" id="your_pass" placeholder="Password"/>
+                        <input type="password" name="password" id="your_pass" placeholder="Password" <?php if(isset($_COOKIE['password'])) { echo "value='{$_COOKIE['password']}'";} ?>/>
                     </div>
                     <div class="form-group">
-                        <input type="checkbox" name="recordarme" id="remember-me" class="agree-term" />
+                        <input type="checkbox" name="recordarme" id="remember-me" class="agree-term"  <?php if(isset($_COOKIE['checked'])) { echo "{$_COOKIE['checked']}";} ?>/>
                         <label for="remember-me" class="label-agree-term"><span><span></span></span>Recuerdame</label>
                     </div>
                     <div class="form-group form-button">
                        <!-- Mostramos errores por HTML -->
-						<?php if (isset($errores)): ?>
-						
+                       <?php if (isset($errorLogin)) : ?>
                         <ul class="errores" style="background-color: #FFABB6;">
-                            <?php 
-                                foreach ($errores as $error) {
-                                    echo '<li>' . $error . '</li>';
-                                } 
-                            ?> 
-                        </ul>
+                                <?php
+                                    foreach ($errorLogin as $error) {
+                                        echo '<li>' . $error . '</li>';
+                                    }
+                                    ?>
+                            </ul>
                         <?php endif; ?>
+                        
                         <!-- Mostramos errores por HTML -->
                         <input type="submit" name="signin" id="signin" class="form-submit" value="Iniciar sessión"/>
                     </div>

@@ -1,5 +1,5 @@
 ﻿<?php
-include_once('php/validacion_contacto.php');
+include_once('funciones/validacion_contacto.php');
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -36,7 +36,7 @@ include_once('php/validacion_contacto.php');
                         <div class="bradcaump__inner text-center">
                         	<h2 class="bradcaump-title">Contact Us</h2>
                             <nav class="bradcaump-content">
-                              <a class="breadcrumb_item" href="index.html">Home</a>
+                              <a class="breadcrumb_item" href="index.php">Home</a>
                               <span class="brd-separetor">/</span>
                               <span class="breadcrumb_item active">Contact Us</span>
                             </nav>
