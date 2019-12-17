@@ -1,6 +1,8 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 <?php include_once('head.php')?> 
+
+
 <body>
 <!-- Header -->
 <header id="wn__header" class="header__area header__absolute sticky__header">
@@ -22,7 +24,7 @@
                                 <ul class="item item03">
                                     <li class="title">Shop Layout</li>
                                     <li><a href="shop-grid.php">Shop Grid</a></li>
-                                    <li><a href="single-product.html">Single Product</a></li>
+                                    <li><a href="single-product.php">Single Product</a></li>
                                 </ul>
                                 <ul class="item item03">
                                     <li class="title">Shop Page</li>
@@ -74,15 +76,17 @@
                         <li class="drop"><a href="#">Pages</a>
                             <div class="megamenu dropdown">
                                 <ul class="item item01">
-                                    <li><a href="my-account.html">My Account</a></li>     
+                                        
                                     <li><a href="faq.php">Faq Page</a></li>
                                    
                                 </ul>
                             </div>
                         </li>
                         <li><a href="contact.php">Contact</a></li>
+
                     </ul>
                 </nav>
+                
             </div>
             <div class="col-md-6 col-sm-6 col-6 col-lg-2">
                 <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
@@ -170,17 +174,15 @@
                         
                                 <div class="switcher-currency">
                                     <strong class="label switcher-label">
-                                        <span>My Account</span>
+                                        <span>Mi Cuenta</span>
                                     </strong>
                                     <div class="switcher-options">
                                         <div class="switcher-currency-trigger">
                                             <div class="setting__menu">
-                                                <span><a href="#">Compare Product</a></span>
-                                                <span><a href="#">My Account</a></span>
-                                                <span><a href="#">My Wishlist</a></span>
-                                                <span><a href="login.php">Sign In</a></span>
-                                                <span><a href="registrarse.php">Create An Account</a></span>
-                                                <span><a href="www.google.com">Salir</a></span>
+                                            
+                                                <span><a href="<?php if(isset($_SESSION['usuario'])) {echo "perfil.php";} else {echo "login.php";}?>"><?php if(isset($_SESSION['usuario'])) {echo "{$_SESSION['usuario']}";} else {echo "Ingresar";}?></a></span>
+                                            <span><a href=""></a></span>
+                                                <?php  if(!isset($_SESSION['usuario'])) {echo "<a href='registrarse.php'><span>Crear Tú Cuenta</span></a>";} else {echo  "<a href='LogOut.php'><span>Salir</span></a>";}?>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +213,7 @@
                         <li><a href="shop-grid.html">Shop</a>
                             <ul>
                                 <li><a href="shop-grid.php">Shop Grid</a></li>
-                                <li><a href="single-product.html">Single Product</a></li>
+                                <li><a href="single-product.php">Single Product</a></li>
                             </ul>
                         </li>
                         <li class="drop"><a href="shop-grid.php">Productos</a>

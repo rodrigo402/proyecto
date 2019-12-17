@@ -1,19 +1,20 @@
 <?php include_once('funciones/funcRegistrar.php'); ?>
-<!DOCTYPE html>
-<html lang="en">
+<?php session_start(); ?>
+<!doctype html>
+<html class="no-js" lang="zxx">
 <head>
-	
-	<title>REGISTRARSE</title>
-    <?php include_once('head.php')?>
-    <link rel="stylesheet" href="css/login/stylelogin.css"> 
-	
+
+<title>Perfil</title>
+<?php include_once('head.php')?>
+<link rel="stylesheet" href="css/login/stylelogin.css"> 
+
 </head>
 <body>
-    <!-- HEADER -->
-<?php include_once('header.php') ?>
-    <!-- /HEADER -->
-<!-- Start Search Popup -->
-<div class="box-search-content search_active block-bg close__top">
+	<!-- HEADER -->
+	<?php include_once('header.php') ?>
+	<!-- /HEADER -->
+		<!-- Start Search Popup -->
+		<div class="box-search-content search_active block-bg close__top">
 			<form id="search_mini_form" class="minisearch" action="#">
 				<div class="field__search">
 					<input type="text" placeholder="Search entire store here...">
@@ -33,11 +34,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">INICIAR SESSION</h2>
+                        	<h2 class="bradcaump-title">Mi Perfil</h2>
                             <nav class="bradcaump-content">
                               <a class="breadcrumb_item" href="index.php">Home</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">REGISTRARSE</span>
+                              <span class="breadcrumb_item active">Datos Personales</span>
                             </nav>
                         </div>
                     </div>
@@ -45,41 +46,46 @@
             </div>
         </div>
         <!-- End Bradcaump area -->
-<!-- Sign up form -->
-<section class="signup">
-    <div class="container">
-        <div class="signup-content">
-            <div class="signup-form">
-                <h2 class="form-title">Registrarse</h2>
-                <form method="POST" class="register-form" id="register-form" action="registrarse.php" enctype="multipart/form-data">
-                    <div class="form-group">
+        <!-- Start Contact Area -->
+        <section class="wn_contact_area bg--white pt--80 pb--80">
+		
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-lg-8 col-12">
+        				<div class="contact-form-wrap">
+                            <h4>Bienvenido: <?=$_SESSION['usuario']?></h4>
+                            <div class="img-perfil">
+                            <img <?php if($_SESSION) {echo "src=archivos/{$_SESSION['imagen']}";}?> width="200">
+                            </div><br>
+
+                            <form method="POST" class="register-form" id="register-form" action="perfil.php">
+                            <br><div class="form-group">
+                    
                         <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="usuario" id="usaurio" placeholder="Usuario" <?php if(isset($usuario['usuario'])) { echo "value='{$usuario['usuario']}'"; }?>/>
+                        
+                        <input type="text" name="usuario" id="usaurio" value="<?=$_SESSION['usuario']?>" />
                     </div>
                     <div class="form-group">
                         <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="nombre" id="name" placeholder="Your Name" <?php if(isset($usuario['nombre'])) { echo "value='{$usuario['nombre']}'"; }?>/>
+                        <input type="text" name="nombre" id="name" value="<?=$_SESSION['nombre']?>" />
                     </div>
                     <div class="form-group">
                         <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="apellido" id="apellido" placeholder="Your Name" <?php if(isset($usuario['apellido'])) { echo "value='{$usuario['apellido']}'"; }?>/>
+                        <input type="text" name="apellido" id="apellido" value="<?=$_SESSION['apellido']?>"/>
                     </div>
                     <div class="form-group">
                         <label for="email"><i class="zmdi zmdi-email"></i></label>
-                        <input type="email" name="email" id="email" placeholder="Your Email" <?php if(isset($usuario['email'])) { echo "value='{$usuario['email']}'"; }?>/>
+                        <input type="email" name="email" id="email" value="<?=$_SESSION['email']?>"/>
                     </div>
                     <div class="form-group">
                         <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" name="password" id="pass" placeholder="Password"/>
+                        <input type="password" name="password" id="pass" value="<?=$_SESSION['password']?>" />
                     </div>
                     <div class="form-group">
                         <label for="imagen"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="file" name="imagen" id="imagen" placeholder="Seleccionar imagen"/>
+                        <input type="file" name="imagen" id="imagen"/>
                     </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                        <label for="agree-term" class="label-agree-term"><span><span></span></span>Acepto todas las declaraciones en los  <a href="#" class="term-service">Términos de servicio</a></label>
-                    </div>
+
                     <div class="form-group form-button">
                        <!-- Mostramos errores por HTML -->
                        <?php if (isset($errorRegistro)) : ?>
@@ -92,19 +98,15 @@
                             </ul>
                         <?php endif; ?>
                     <!-- Mostramos errores por HTML -->
-                        <input type="submit" name="signup" id="signup" class="form-submit" value="Registrarme"/>
+                        <input type="submit" name="signup" id="signup" class="form-submit" value="Guardar Cambios"/>
                     </div>
                 </form>
-            </div>
-            <div class="signup-image">
-                <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-                <a href="login.php" class="signup-image-link">Ya soy miembro</a>
-            </div>
-        </div>
-    </div>
-</section>
+            </div>   
+        </section>
+        <!-- End Contact Area -->
+
 <!-- FOOTER -->
 <?php include_once('footer.php') ?>
-    <!-- /FOOTER -->
+	<!-- /FOOTER -->
 </body>
 </html>
